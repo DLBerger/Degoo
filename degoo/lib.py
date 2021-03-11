@@ -2,6 +2,7 @@
 # Library functions supporting the Degoo CLI package
 
 import os
+import pathlib
 
 
 def ddd(ID, Path):
@@ -44,12 +45,10 @@ def split_path(path):
 
 def absolute_remote_path(CWD, path):
     '''
-    Convert a give path string to an absolute one (if it's relative).
+    Convert a given path string to an absolute one (if it's relative).
      
     :param path: The path to convert.
-    :returns: The absolute version of path 
+    :returns: The absolute version of path in Posix format
     '''
-    if path and path[0] == os.sep:
-        return os.path.abspath(path.rstrip(os.sep))
-    else:
-        return os.path.abspath(os.path.join(CWD["Path"], path))
+    # normpath() will remove clean up the path and the PurePosixPath() will strip trailing /, if present
+    return pathlib.PurePosixPath(os.path.normpath(os.path.abspath(os.path.join(CWD["Path"], path))))

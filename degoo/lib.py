@@ -52,4 +52,4 @@ def absolute_remote_path(CWD, path):
     if path and path[0] == os.sep:
         return os.path.abspath(path.rstrip(os.sep))
     else:
-        return os.path.abspath(os.path.join(CWD["Path"], path.rstrip(os.sep)))
+        return os.path.abspath(os.path.join(CWD["Path"], path))

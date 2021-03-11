@@ -138,6 +138,7 @@ degoo_ll
 degoo_login
 degoo_ls
 degoo_mkdir
+degoo_mv
 degoo_path
 degoo_props
 degoo_put

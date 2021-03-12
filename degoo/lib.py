@@ -51,4 +51,4 @@ def absolute_remote_path(CWD, path):
     :returns: The absolute version of path in Posix format
     '''
     # normpath() will remove clean up the path and the PurePosixPath() will strip trailing /, if present
-    return pathlib.PurePosixPath(os.path.normpath(os.path.abspath(os.path.join(CWD["Path"], path))))
+    return str(pathlib.PurePosixPath(os.path.normpath(os.path.abspath(os.path.join(CWD["Path"], path)))).as_posix())
